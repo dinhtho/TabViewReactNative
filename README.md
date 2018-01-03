@@ -1,4 +1,124 @@
 #  TabView
+
+
+# React Native Tab View
+
+[![Build Status][build-badge]][build]
+[![Version][version-badge]][package]
+[![MIT License][license-badge]][license]
+
+A cross-platform Tab View component for React Native.
+
+This is a JavaScript-only implementation of swipeable tab views. It's super customizable, allowing you to do things like coverflow.
+
+- [Run the example app to see it in action](https://expo.io/@satya164/react-native-tab-view-demos).
+- Checkout the [example/](https://github.com/react-native-community/react-native-tab-view/tree/master/example) folder for source code.
+
+
+## Features
+
+- Smooth animations and gestures
+- Scrollable tabs
+- Both top and bottom tab bars
+- Follows Material Design spec
+- Highly customizable
+- Fully typed with [Flow](https://flow.org/)
+
+
+## Demo
+
+<img src="https://github.com/dinhtho/TabViewReactNative/blob/master/image.png" width="500"/>
+
+
+
+## Installation
+
+```sh
+yarn add react-native-tab-view react-native-gesture-handler
+```
+
+
+## Example
+
+```js
+import React, { PureComponent } from 'react';
+import { View, StyleSheet, Dimensions } from 'react-native';
+import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
+
+const initialLayout = {
+  height: 0,
+  width: Dimensions.get('window').width,
+};
+
+const FirstRoute = () => <View style={[ styles.container, { backgroundColor: '#ff4081' } ]} />;
+const SecondRoute = () => <View style={[ styles.container, { backgroundColor: '#673ab7' } ]} />;
+
+export default class TabViewExample extends PureComponent {
+  state = {
+    index: 0,
+    routes: [
+      { key: 'first', title: 'First' },
+      { key: 'second', title: 'Second' },
+    ],
+  };
+
+  _handleIndexChange = index => this.setState({ index });
+
+  _renderHeader = props => <TabBar {...props} />;
+
+  _renderScene = SceneMap({
+    first: FirstRoute,
+    second: SecondRoute,
+  });
+
+  render() {
+    return (
+      <TabViewAnimated
+        style={styles.container}
+        navigationState={this.state}
+        renderScene={this._renderScene}
+        renderHeader={this._renderHeader}
+        onIndexChange={this._handleIndexChange}
+        initialLayout={initialLayout}
+      />
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
 * Standard compliant React Native App Utilizing [Ignite](https://github.com/infinitered/ignite)
