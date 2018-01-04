@@ -1,6 +1,7 @@
 import { StackNavigator } from 'react-navigation'
 import LaunchScreen from '../Containers/LaunchScreen'
 import TabViewScreen from '../Containers/TabView/TabView.Screen'
+import ViewPagerScreen from '../Containers/ViewPager/ViewPager.Screen'
 
 import styles from './Styles/NavigationStyles'
 
@@ -8,10 +9,11 @@ import styles from './Styles/NavigationStyles'
 const PrimaryNav = StackNavigator({
   LaunchScreen: { screen: LaunchScreen },
   TabViewScreen: { screen: TabViewScreen },
+  ViewPagerScreen: { screen: ViewPagerScreen },
 }, {
   // Default config for all screens
   headerMode: 'none',
-  initialRouteName: 'TabViewScreen',
+  initialRouteName: 'ViewPagerScreen',
   navigationOptions: {
     headerStyle: styles.header
   }
